@@ -60,44 +60,6 @@ b d d d d d f d d f d d d d d b
 . . . . . . b d d b . . . . . . 
 . . . . . . . b b . . . . . . . 
 `;
-            case "image2":
-            case "Player2":return img`
-. . . . . . . . . . . . . . . . 
-. . . . . f f f f f f . . . . . 
-. . . . f 5 5 5 5 5 5 f . . . . 
-. . . . f 5 5 5 5 5 5 f . . . . 
-. . . . f 5 f f 5 f f f . . . . 
-. . . . f 5 5 5 5 5 5 f . . . . 
-. . . . f 5 5 5 5 5 5 f . . . . 
-. . . . f f f f f f f f . . . . 
-. . . . f 3 3 3 3 3 3 f . . . . 
-. . . . f 3 3 3 3 3 3 f . . . . 
-. . . . f f f f f f f f . . . . 
-. . . . f a a a a a a f . . . . 
-. . . . f a a f f a a f . . . . 
-. . . . f a a f f a a f . . . . 
-. . . . f a a f f a a f . . . . 
-. . . . . f f . . f f . . . . . 
-`;
-            case "image4":
-            case "Player2 Jump":return img`
-. . . . . . . . . . . . . . . . 
-. . . . . f f f f f f . . . . . 
-. . . . f 5 5 5 5 5 5 f . . . . 
-. . . . f 5 5 5 5 5 5 f . . . . 
-. . . . f 5 f f 5 f f f . . . . 
-. . . . f 5 5 5 5 5 5 f . . . . 
-. . . . f 5 5 f 5 5 5 f . . . . 
-. . . . f f f f f f f f . . . . 
-. . . . f 3 3 3 3 3 3 f . . . . 
-. . . . f 3 3 3 3 3 3 f . . . . 
-. . . . f f f f f f f f . . . . 
-. . . f a a a a a a a a f . . . 
-. . f a a a f f f f a a a f . . 
-. f a a a f . . . . f a a a f . 
-. . f a f . . . . . . f a f . . 
-. . . f . . . . . . . . f . . . 
-`;
         }
         return null;
     })

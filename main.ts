@@ -10,8 +10,11 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`Finish`, function (sprite, lo
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     music.jumpUp.play()
-    playerSprite.vy = -200
+    playerSprite.vy = 0 - energy * 2
     playerSprite.setImage(assets.image`Player Jump`)
+    if (energy != 0) {
+        energy += -1
+    }
 })
 function startNextlevel () {
     for (let value of sprites.allOfKind(SpriteKind.Enemy)) {
@@ -85,6 +88,33 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`Coin Block`, function (sprite
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Trampoline`, function (sprite, location) {
     sprite.vy = -300
 })
+controller.down.onEvent(ControllerButtonEvent.Repeated, function () {
+    playerSprite.setImage(img`
+        . . . . 6 6 6 6 6 6 6 6 . . . . 
+        . . . 6 9 9 9 9 9 9 9 9 6 . . . 
+        . . . 6 9 9 6 9 9 6 9 9 6 . . . 
+        . . . 6 6 6 6 6 6 6 6 6 6 . . . 
+        . . . 6 9 9 9 9 9 9 9 9 6 . . . 
+        . . . 6 9 9 9 6 6 9 9 9 6 . . . 
+        . . . 6 9 9 9 6 6 9 9 9 6 . . . 
+        . . . . 6 6 6 . . 6 6 6 . . . . 
+        `)
+    if (energy != 100) {
+        energy += 1
+    }
+})
+controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
+    playerSprite.setImage(img`
+        . . . . f f f f f f f f . . . . 
+        . . . f 5 5 5 5 5 5 5 5 f . . . 
+        . . . f 5 5 f 5 5 f 5 5 f . . . 
+        . . . f f f f f f f f f f . . . 
+        . . . f 8 8 8 8 8 8 8 8 f . . . 
+        . . . f 8 8 8 f f 8 8 8 f . . . 
+        . . . f 8 8 8 f f 8 8 8 f . . . 
+        . . . . f f f . . f f f . . . . 
+        `)
+})
 info.onLifeZero(function () {
     game.splash("Game Over", "You Died")
     info.setLife(3)
@@ -106,6 +136,7 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
 })
 let enemySprite: Sprite = null
 let chosenLevel = 0
+let energy = 0
 let playerSprite: Sprite = null
 scene.setBackgroundImage(img`
     bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
@@ -432,9 +463,12 @@ scene.setBackgroundImage(img`
     `)
 logo.destroy()
 startNextlevel()
+energy = 100
 forever(function () {
     pause(100)
-    if (playerSprite.isHittingTile(CollisionDirection.Bottom)) {
-        playerSprite.setImage(assets.image`Player`)
+    if (!(controller.down.isPressed())) {
+        if (playerSprite.isHittingTile(CollisionDirection.Bottom)) {
+            playerSprite.setImage(assets.image`Player`)
+        }
     }
 })

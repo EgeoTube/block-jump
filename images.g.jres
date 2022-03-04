@@ -14,16 +14,6 @@
         "mimeType": "image/x-mkcd-f4",
         "displayName": "Enemy"
     },
-    "image2": {
-        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///////8P8FVV9TOvqvrwVV/1M6+q+vBVX/Uzr/8P8FVV9TOv/w/wVV/1M6+q+vBVX/Uzr6r6AP///////w8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "Player2"
-    },
-    "image4": {
-        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAPAAAAAAAAAArw8AAAAAAPCq+gD/////r6oP8FVV9TOv+gDwVV/1M68PAPBVX/8zrw8A8FVV9TOvDwDwVV/1M68PAPBVX/Uzr/oAAP////+vqg8AAAAAAPCq+gAAAAAAAK8PAAAAAAAA8AAAAAAAAAAAAA==",
-        "mimeType": "image/x-mkcd-f4",
-        "displayName": "Player2 Jump"
-    },
     "*": {
         "mimeType": "image/x-mkcd-f4",
         "dataEncoding": "base64",
