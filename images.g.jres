@@ -1,0 +1,32 @@
+{
+    "image1": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///////8P8FVV9ZmPiPjwVVX1mY+I+PBV//WZj/8P8FVV9ZmP/w/wVf/1mY+I+PBVVfWZj4j4AP///////w8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Player"
+    },
+    "image5": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAPAAAAAAAAAAjw8AAAAAAPCI+AD/////j4gP8FVV9ZmP+ADwVVX1mY8PAPD1X/WZjw8A8FVV9ZmPDwDw9V/1mY8PAPBVVfWZj/gAAP////+PiA8AAAAAAPCI+AAAAAAAAI8PAAAAAAAA8AAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Player Jump"
+    },
+    "image3": {
+        "data": "hwQQABAAAAAAAACwCwAAAAAAANu9AAAAAACw3d0LAAAAANvd3b0AAACw3d/d3QsAANvd/d3dvQCw3d3d393dC9vd3d3d3d29293d3d3d3b2w3d3d393dCwDb3f3d3b0AALDd393dCwAAANvd3b0AAAAAsN3dCwAAAAAA270AAAAAAACwCwAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Enemy"
+    },
+    "image2": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD///////8P8FVV9TOvqvrwVV/1M6+q+vBVX/Uzr/8P8FVV9TOv/w/wVV/1M6+q+vBVX/Uzr6r6AP///////w8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Player2"
+    },
+    "image4": {
+        "data": "hwQQABAAAAAAAAAAAAAAAAAAAAAAAPAAAAAAAAAArw8AAAAAAPCq+gD/////r6oP8FVV9TOv+gDwVV/1M68PAPBVX/8zrw8A8FVV9TOvDwDwVV/1M68PAPBVX/Uzr/oAAP////+vqg8AAAAAAPCq+gAAAAAAAK8PAAAAAAAA8AAAAAAAAAAAAA==",
+        "mimeType": "image/x-mkcd-f4",
+        "displayName": "Player2 Jump"
+    },
+    "*": {
+        "mimeType": "image/x-mkcd-f4",
+        "dataEncoding": "base64",
+        "namespace": "myImages"
+    }
+}
