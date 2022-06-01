@@ -10,10 +10,10 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`Finish`, function (sprite, lo
 })
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     music.jumpUp.play()
-    playerSprite.vy = 0 - energy * 2
+    playerSprite.vy = 0 - statusbar.value * 2
     playerSprite.setImage(assets.image`Player Jump`)
-    if (energy != 0) {
-        energy += -1
+    if (statusbar.value != 0) {
+        statusbar.value += -1
     }
 })
 function startNextlevel () {
@@ -77,6 +77,12 @@ scene.onOverlapTile(SpriteKind.Player, assets.tile`Coin Block`, function (sprite
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Trampoline`, function (sprite, location) {
     sprite.vy = -300
 })
+statusbars.onZero(StatusBarKind.Health, function (status) {
+    game.splash("Dead!", "You Died!")
+    info.changeLifeBy(-1)
+    startNextlevel()
+    healthbar.value = healthbar.max
+})
 controller.down.onEvent(ControllerButtonEvent.Repeated, function () {
     playerSprite.setImage(img`
         . . . . 6 6 6 6 6 6 6 6 . . . . 
@@ -88,8 +94,8 @@ controller.down.onEvent(ControllerButtonEvent.Repeated, function () {
         . . . 6 9 9 9 6 6 9 9 9 6 . . . 
         . . . . 6 6 6 . . 6 6 6 . . . . 
         `)
-    if (energy != 100) {
-        energy += 1
+    if (statusbar.value != 100) {
+        statusbar.value += 1
     }
 })
 controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
@@ -105,12 +111,10 @@ controller.down.onEvent(ControllerButtonEvent.Pressed, function () {
         `)
 })
 info.onLifeZero(function () {
-    game.splash("Game Over", "You Died")
-    info.setLife(3)
-    startNextlevel()
+    game.over(false)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Lava Block`, function (sprite, location) {
-    info.setLife(0)
+    healthbar.value = 0
 })
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     otherSprite.destroy()
@@ -119,13 +123,14 @@ sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSp
         sprite.vy = -100
         music.baDing.playUntilDone()
     } else {
-        info.changeLifeBy(-1)
+        healthbar.value += -1
         music.jumpDown.playUntilDone()
     }
 })
 let enemySprite: Sprite = null
 let chosenLevel = 0
-let energy = 0
+let statusbar: StatusBarSprite = null
+let healthbar: StatusBarSprite = null
 let playerSprite: Sprite = null
 scene.setBackgroundImage(img`
     bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
@@ -452,7 +457,14 @@ scene.setBackgroundImage(img`
     `)
 logo.destroy()
 startNextlevel()
-energy = 100
+let energy = 100
+healthbar = statusbars.create(20, 2, StatusBarKind.Health)
+statusbar = statusbars.create(160, 6, StatusBarKind.Energy)
+healthbar.setColor(2, 15, 14)
+statusbar.setColor(5, 15, 4)
+healthbar.max = 4
+healthbar.attachToSprite(playerSprite, 0, 0)
+statusbar.positionDirection(CollisionDirection.Bottom)
 forever(function () {
     pause(100)
     if (!(controller.down.isPressed())) {
