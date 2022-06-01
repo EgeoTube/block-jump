@@ -35,55 +35,44 @@ function startNextlevel () {
             enemySprite.follow(playerSprite, 30)
         }
         effects.confetti.endScreenEffect()
-        music.stopAllSounds()
-        music.powerDown.play()
-        game.splash("Level " + chosenLevel)
     }
 }
 function changeLevel () {
+    music.stopAllSounds()
     if (chosenLevel == 0) {
-        tiles.setTilemap(tilemap`Tutorial`)
+        tiles.setTilemap(tilemap`Indoor Hills`)
+        music.powerDown.play()
+        game.splash("Level 1", "Indoor Hills")
     } else if (chosenLevel == 1) {
-        tiles.setTilemap(tilemap`Level 1`)
-    } else if (chosenLevel == 2) {
         tiles.setTilemap(tilemap`Level 2`)
-    } else if (chosenLevel == 3) {
+        music.powerDown.play()
+        game.splash("Level 1", "Lavafall Center")
+    } else if (chosenLevel == 2) {
         tiles.setTilemap(tilemap`Level 3`)
-    } else if (chosenLevel == 4) {
+        music.powerDown.play()
+    } else if (chosenLevel == 3) {
         tiles.setTilemap(tilemap`Level 4`)
-    } else if (chosenLevel == 5) {
+    } else if (chosenLevel == 4) {
         tiles.setTilemap(tilemap`Level 5`)
-    } else if (chosenLevel == 6) {
+    } else if (chosenLevel == 5) {
         tiles.setTilemap(tilemap`Level 6`)
-    } else if (chosenLevel == 7) {
+    } else if (chosenLevel == 6) {
         tiles.setTilemap(tilemap`Level 7`)
-    } else if (chosenLevel == 8) {
+    } else if (chosenLevel == 7) {
         tiles.setTilemap(tilemap`Level 8`)
-    } else if (chosenLevel == 9) {
+    } else if (chosenLevel == 8) {
         tiles.setTilemap(tilemap`Level 9`)
+    } else if (chosenLevel == 9) {
+        tiles.setTilemap(tilemap`Tall Heights`)
     } else if (chosenLevel == 10) {
-        tiles.setTilemap(tilemap`Level 10`)
-    } else if (chosenLevel == 11) {
         tiles.setTilemap(tilemap`Level 11`)
-    } else if (chosenLevel == 12) {
-        tiles.setCurrentTilemap(tilemap`Level 12`)
-    } else if (chosenLevel == 13) {
-        tiles.setCurrentTilemap(tilemap`Level 13`)
-    } else if (chosenLevel == 14) {
-        tiles.setCurrentTilemap(tilemap`level11`)
-    } else if (chosenLevel == 15) {
-        tiles.setCurrentTilemap(tilemap`level13`)
     } else {
         changeLevel()
     }
 }
-scene.onOverlapTile(SpriteKind.Player, assets.tile`Particle Block`, function (sprite, location) {
-    effects.confetti.startScreenEffect()
-    tiles.replaceAllTiles(assets.tile`Particle Block`, assets.tile`Used Particle Block`)
-})
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Coin Block`, function (sprite, location) {
     info.changeScoreBy(5)
-    tiles.setTileAt(location, assets.tile`Ground`)
+    tiles.setTileAt(location, assets.tile`transparency16`)
 })
 scene.onOverlapTile(SpriteKind.Player, assets.tile`Trampoline`, function (sprite, location) {
     sprite.vy = -300
